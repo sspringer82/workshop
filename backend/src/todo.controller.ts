@@ -6,9 +6,11 @@ import {
   Put,
   Delete,
   Param,
+  UseGuards,
 } from '@nestjs/common';
 import { TodoService } from './todo.service';
 import { Todo } from './todo.interface';
+import { AuthGuard } from '@nestjs/passport';
 
 @Controller('todo')
 export class TodoController {
@@ -25,16 +27,19 @@ export class TodoController {
   }
 
   @Post()
+  // @UseGuards(AuthGuard('jwt'))
   create(@Body() todo: Todo) {
     return this.todoService.create(todo);
   }
 
   @Put(':id')
+  @UseGuards(AuthGuard('jwt'))
   async update(@Body() todo: Todo) {
     return this.todoService.update(todo);
   }
 
   @Delete(':id')
+  @UseGuards(AuthGuard('jwt'))
   async remove(@Param('id') id: string) {
     return this.todoService.remove(id);
   }
