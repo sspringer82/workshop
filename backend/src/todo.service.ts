@@ -11,14 +11,6 @@ export class TodoService {
   constructor() {
     const adapter = new FileSync('db.json');
     this.db = low(adapter);
-    this.db
-      .defaults({
-        todos: [
-          { id: generate(), title: 'get up', done: true },
-          { id: generate(), title: 'eat', done: false },
-        ],
-      })
-      .write();
   }
 
   getAll() {

@@ -10,5 +10,6 @@
       "title": "eat",
       "done": false
     }
-  ]
+  ],
+  "users": [{ "username": "admin", "password": "test" }]
 }
