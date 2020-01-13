@@ -36,7 +36,7 @@ export class TodoService {
 
   update(todo: Todo) {
     this.db
-      .get('posts')
+      .get('todos')
       .find({ id: todo.id })
       .assign(todo)
       .write();
