@@ -11,19 +11,27 @@ interface Props {}
 
 export default class List extends React.Component<Props, State> {
   state = {
-    todos: [
-      {
-        id: '1',
-        title: 'Get up',
-        done: true,
-      },
-      {
-        id: '2',
-        title: 'Have Breakfast',
-        done: false,
-      },
-    ],
+    todos: [] as TodoType[],
   };
+
+  componentDidMount() {
+    setTimeout(() => {
+      this.setState({
+        todos: [
+          {
+            id: '1',
+            title: 'Get up',
+            done: true,
+          },
+          {
+            id: '2',
+            title: 'Have Breakfast',
+            done: false,
+          },
+        ],
+      });
+    }, 4000);
+  }
 
   handleStatusChange = (todo: TodoType) => {
     this.setState((prevState: State) => {
@@ -35,6 +43,7 @@ export default class List extends React.Component<Props, State> {
   };
 
   render() {
+    console.log('render');
     return (
       <div>
         {this.state.todos.map(todo => (
