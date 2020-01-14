@@ -6,7 +6,7 @@ const App: React.FC = () => {
   return (
     <>
       <Todo />
-      <Name />
+      <Name name="Basti" />
     </>
   );
 };

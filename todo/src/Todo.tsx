@@ -5,14 +5,14 @@ const Todo: React.FC = () => {
   const todo: TodoType = {
     id: '1',
     title: 'Get up',
-    done: true,
+    done: false,
   };
 
   return (
     <div>
       <div>Id: {todo.id}</div>
       <div>Title: {todo.title}</div>
-      <div>Done: {todo.done} ✅ ❌</div>
+      <div>Done: {todo.done ? '✅' : '❌'} </div>
     </div>
   );
 };
