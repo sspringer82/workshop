@@ -1,18 +1,16 @@
 import React from 'react';
 import { Todo as TodoType } from './Todo.interface';
 
-const Todo: React.FC = () => {
-  const todo: TodoType = {
-    id: '1',
-    title: 'Get up',
-    done: false,
-  };
+interface Props {
+  todo: TodoType;
+}
 
+const Todo: React.FC<Props> = ({ todo: { id, title, done } }) => {
   return (
     <div>
-      <div>Id: {todo.id}</div>
-      <div>Title: {todo.title}</div>
-      <div>Done: {todo.done ? '✅' : '❌'} </div>
+      <div>Id: {id}</div>
+      <div>Title: {title}</div>
+      <div>Done: {done ? '✅' : '❌'} </div>
     </div>
   );
 };
