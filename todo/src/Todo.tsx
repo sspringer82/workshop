@@ -12,7 +12,7 @@ const Todo: React.FC = () => {
     <div>
       <div>Id: {todo.id}</div>
       <div>Title: {todo.title}</div>
-      <div>Done: {todo.done}</div>
+      <div>Done: {todo.done} ✅ ❌</div>
     </div>
   );
 };
