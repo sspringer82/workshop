@@ -8,6 +8,8 @@ https://reactjs.org/
 
 https://create-react-app.dev/
 
+https://overreacted.io/
+
 ## CRA (Create React App)
 
 React Apps bootstrappen
