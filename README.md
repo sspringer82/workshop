@@ -27,3 +27,9 @@ React Apps bootstrappen
 - https://github.com/airbnb/javascript
 - https://google.github.io/styleguide/jsguide.html
 - https://standardjs.com/
+
+## immutability
+
+- https://github.com/kolodny/immutability-helper
+- https://github.com/immerjs/immer
+- https://immutable-js.github.io/immutable-js/docs/#/
