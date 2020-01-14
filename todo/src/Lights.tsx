@@ -29,7 +29,7 @@ export default class Lights extends React.Component<Props, State> {
         <div>{this.state.canWalk ? 'walk' : 'stop'}</div>
         <button onClick={handleClick}>toggle</button>
         {values.map(v => (
-          <div>{v}</div>
+          <div key={v}>{v}</div>
         ))}
       </div>
     );
