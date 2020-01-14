@@ -14,9 +14,13 @@ const App: React.FC = () => {
     alert('you clicked the ' + name);
   };
 
+  const handleStatusChange = (todo: TodoType) => {
+    console.log(todo);
+  };
+
   return (
     <>
-      <Todo todo={todo} />
+      <Todo onStatusChange={handleStatusChange} todo={todo} />
       <Name name="Basti" onClick={handleClick} />
     </>
   );
