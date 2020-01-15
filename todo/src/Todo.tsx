@@ -1,5 +1,8 @@
 import React from 'react';
 import { Todo as TodoType } from './Todo.interface';
+import Card from '@material-ui/core/Card';
+import CardContent from '@material-ui/core/CardContent';
+import Typography from '@material-ui/core/Typography';
 
 interface Props {
   todo: TodoType;
@@ -8,18 +11,22 @@ interface Props {
 
 const Todo: React.FC<Props> = ({ todo, onStatusChange }) => {
   const { id, title, done } = todo;
+
   return (
-    <div>
-      <div>Id: {id}</div>
-      <div>Title: {title}</div>
-      <div
-        onClick={() => {
-          onStatusChange(todo);
-        }}
-      >
-        Done: {done ? '✅' : '❌'}{' '}
-      </div>
-    </div>
+    <Card>
+      <CardContent>
+        <Typography variant="h5" component="h2">
+          {title}({id})
+        </Typography>
+        <div
+          onClick={() => {
+            onStatusChange(todo);
+          }}
+        >
+          Done: {done ? '✅' : '❌'}{' '}
+        </div>
+      </CardContent>
+    </Card>
   );
 };
 

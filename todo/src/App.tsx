@@ -3,16 +3,17 @@ import React from 'react';
 // import Greet from './Greet';
 import ListFn from './ListFn';
 import Lights from './styling/LightsSC';
+import Form from './Form';
 
 const App: React.FC = () => {
   console.log('App render');
 
   return (
     <>
-      <Lights />
+      {/* <Lights />
       <hr />
-      <ListFn />
-      <div className="lights"></div>
+      <ListFn />*/}
+      <Form />
     </>
   );
 };

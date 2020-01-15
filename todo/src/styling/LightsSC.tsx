@@ -2,6 +2,8 @@ import React from 'react';
 import './Lights.scss';
 import { Box, State, Pole, Button } from './Lights.styles';
 
+import PoolIcon from '@material-ui/icons/Pool';
+
 interface State {
   canWalk: boolean;
 }
@@ -42,6 +44,7 @@ export default class Lights extends React.Component<Props, State> {
         <Pole />
 
         <Button onClick={handleClick}>toggle</Button>
+        <PoolIcon />
         {values.map(v => (
           <div key={v}>{v}</div>
         ))}
