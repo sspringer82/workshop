@@ -1,6 +1,6 @@
 import React, { useState, ChangeEvent } from 'react';
 import { Todo as TodoType } from './Todo.interface';
-import { Formik, Field, FieldProps } from 'formik';
+import { Formik, Field, FieldProps, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
 import { TextField } from '@material-ui/core';
 
@@ -20,23 +20,6 @@ interface Props {
   onSubmit: (todo: TodoType) => void;
 }
 const TodoForm: React.FC<Props> = ({ onSubmit }) => {
-  const [value, setValue] = useState(initialValue);
-
-  function handleChange(e: ChangeEvent<HTMLInputElement>) {
-    const key = e.currentTarget.name;
-    const value =
-      e.currentTarget.type === 'checkbox'
-        ? e.currentTarget.checked
-        : e.currentTarget.value;
-    setValue(prevValue => {
-      const newValue = {
-        ...prevValue,
-        [key]: value,
-      };
-      return newValue;
-    });
-  }
-
   return (
     <Formik
       initialValues={initialValue}
@@ -67,7 +50,7 @@ const TodoForm: React.FC<Props> = ({ onSubmit }) => {
                 />
               )}
             </Field>
-            {errors.title && touched.title ? <div>{errors.title}</div> : null}
+            <ErrorMessage name="title" />
           </div>
           <div>
             done?
