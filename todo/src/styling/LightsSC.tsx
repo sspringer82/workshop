@@ -1,4 +1,7 @@
 import React from 'react';
+import './Lights.scss';
+import classNames from 'classnames';
+import { Box, State } from './Lights.styles';
 
 interface State {
   canWalk: boolean;
@@ -24,9 +27,16 @@ export default class Lights extends React.Component<Props, State> {
       });
     };
 
+    const styles = { border: '1px solid black', marginBottom: '20px' };
+
     return (
-      <div style={{ border: '1px solid black', marginBottom: '20px' }}>
-        <div>{this.state.canWalk ? 'walk' : 'stop'}</div>
+      <div style={styles} className="Lights">
+        <Box>
+          <State active={!this.state.canWalk}>stop</State>
+
+          <State active={this.state.canWalk}>walk</State>
+        </Box>
+
         <button onClick={handleClick}>toggle</button>
         {values.map(v => (
           <div key={v}>{v}</div>

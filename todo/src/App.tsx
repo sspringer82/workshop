@@ -1,14 +1,18 @@
 import React from 'react';
-import List from './List';
-import Greet from './Greet';
+// import List from './List';
+// import Greet from './Greet';
+import ListFn from './ListFn';
+import Lights from './styling/LightsSC';
 
 const App: React.FC = () => {
   console.log('App render');
 
   return (
     <>
-      <Greet />
-      <List />
+      <Lights />
+      <hr />
+      <ListFn />
+      <div className="lights"></div>
     </>
   );
 };

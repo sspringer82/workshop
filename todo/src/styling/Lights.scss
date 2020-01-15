@@ -1,0 +1,16 @@
+.Lights {
+  .box {
+    border: 1px solid black;
+    border-radius: 5px;
+    background-color: darkgrey;
+    width: 100px;
+    height: 50px;
+    margin: 20px;
+  }
+  .state {
+    color: grey;
+    &.active {
+      color: yellow;
+    }
+  }
+}

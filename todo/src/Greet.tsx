@@ -9,8 +9,12 @@ const Greet: React.FC = () => {
   useEffect(() => {
     setTimeout(() => {
       setName('Basti');
-    }, 4000);
+    }, 100);
   }, []);
+
+  useEffect(() => {
+    console.log('name changed');
+  }, [name]);
 
   return <div>Hello {name}!</div>;
 };
