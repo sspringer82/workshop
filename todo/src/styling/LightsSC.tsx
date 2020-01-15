@@ -1,7 +1,6 @@
 import React from 'react';
 import './Lights.scss';
-import classNames from 'classnames';
-import { Box, State } from './Lights.styles';
+import { Box, State, Pole, Button } from './Lights.styles';
 
 interface State {
   canWalk: boolean;
@@ -32,12 +31,17 @@ export default class Lights extends React.Component<Props, State> {
     return (
       <div style={styles} className="Lights">
         <Box>
-          <State active={!this.state.canWalk}>stop</State>
+          <State active={!this.state.canWalk} stop>
+            stop
+          </State>
 
-          <State active={this.state.canWalk}>walk</State>
+          <State active={this.state.canWalk} walk>
+            walk
+          </State>
         </Box>
+        <Pole />
 
-        <button onClick={handleClick}>toggle</button>
+        <Button onClick={handleClick}>toggle</Button>
         {values.map(v => (
           <div key={v}>{v}</div>
         ))}

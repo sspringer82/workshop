@@ -18,6 +18,10 @@ https://pbs.twimg.com/media/Dc2YU2aWsAAVbmk?format=jpg&name=large
 
 https://github.com/JedWatson/classnames
 
+https://material.io/design/
+
+https://react-bootstrap.github.io/
+
 ## CRA (Create React App)
 
 React Apps bootstrappen

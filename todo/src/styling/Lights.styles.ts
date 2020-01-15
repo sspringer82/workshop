@@ -7,17 +7,35 @@ export const Box = styled.div`
   width: 100px;
   height: 50px;
   margin: 20px;
-`;
-
-const MyBox = styled(Box)`
-  margin: 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 `;
 
 interface Props {
   active: boolean;
+  stop?: boolean;
+  walk?: boolean;
 }
 export const State = styled.div`
   ${(props: Props) => css`
-    color: ${props.active ? 'yellow' : 'grey'};
+    color: ${props.active ? (props.stop ? 'red' : 'limegreen') : 'grey'};
   `}
+`;
+
+export const Pole = styled.div`
+  height: 100px;
+  width: 20px;
+  margin-left: 60px;
+  margin-top: -20px;
+  background-color: black;
+`;
+
+export const Button = styled.button`
+  margin-left: 45px;
+  &:hover {
+    background-color: hotpink;
+    color: yellow;
+  }
 `;
