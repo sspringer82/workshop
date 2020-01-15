@@ -1,66 +1,60 @@
-import React from 'react';
-import Todo from './Todo';
+import React, { useState, useEffect } from 'react';
 import { Todo as TodoType } from './Todo.interface';
-import update from 'immutability-helper';
 import { PacmanLoader } from 'react-spinners';
+import Todo from './Todo';
+import update from 'immutability-helper';
+import TodoForm from './TodoForm';
 
-interface State {
-  todos: TodoType[];
-  isLoading: boolean;
-}
+const List: React.FC = () => {
+  const [todos, setTodos] = useState<TodoType[]>([]);
+  const [isLoading, setIsLoading] = useState(true);
 
-interface Props {}
-
-export default class List extends React.Component<Props, State> {
-  state = {
-    todos: [] as TodoType[],
-    isLoading: true,
-  };
-
-  componentDidMount() {
+  useEffect(() => {
     setTimeout(() => {
-      this.setState({
-        todos: [
-          {
-            id: '1',
-            title: 'Get up',
-            done: true,
-          },
-          {
-            id: '2',
-            title: 'Have Breakfast',
-            done: false,
-          },
-        ],
-        isLoading: false,
-      });
-    }, 4000);
-  }
+      setTodos([
+        {
+          id: '1',
+          title: 'Get up',
+          done: true,
+        },
+        {
+          id: '2',
+          title: 'Have Breakfast',
+          done: false,
+        },
+      ]);
+      setIsLoading(false);
+    }, 500);
+  }, []);
 
-  handleStatusChange = (todo: TodoType) => {
-    this.setState((prevState: State) => {
-      const index = prevState.todos.findIndex(t => t.id === todo.id);
+  const handleStatusChange = (todo: TodoType) => {
+    setTodos((prevState: TodoType[]) => {
+      const index = prevState.findIndex(t => t.id === todo.id);
       return update(prevState, {
-        todos: { [index]: { $toggle: ['done'] } },
+        [index]: { $toggle: ['done'] },
       });
     });
   };
 
-  render() {
-    if (this.state.isLoading) {
-      return <PacmanLoader size={20} color={'#123abc'} loading={true} />;
-    } else {
-      return (
-        <div>
-          {this.state.todos.map(todo => (
-            <Todo
-              key={todo.id}
-              todo={todo}
-              onStatusChange={this.handleStatusChange}
-            />
-          ))}
-        </div>
-      );
-    }
+  const handleSubmit = (todo: TodoType) => {
+    setTodos((prevState: TodoType[]) => {
+      return update(prevState, { $push: [todo] });
+    });
+  };
+
+  if (isLoading) {
+    return <PacmanLoader size={20} color={'#123abc'} loading={true} />;
+  } else {
+    return (
+      <div>
+        {todos.map(todo => (
+          <Todo key={todo.id} todo={todo} onStatusChange={handleStatusChange} />
+        ))}
+        <hr />
+        <TodoForm onSubmit={handleSubmit} />
+      </div>
+    );
   }
-}
+};
+
+export default List;

@@ -1,8 +1,7 @@
 import React from 'react';
 import { Todo as TodoType } from './Todo.interface';
-import Card from '@material-ui/core/Card';
-import CardContent from '@material-ui/core/CardContent';
 import Typography from '@material-ui/core/Typography';
+import { CardContent, Card } from './Todo.styles';
 
 interface Props {
   todo: TodoType;
@@ -23,7 +22,7 @@ const Todo: React.FC<Props> = ({ todo, onStatusChange }) => {
             onStatusChange(todo);
           }}
         >
-          Done: {done ? '✅' : '❌'}{' '}
+          {done ? '✅' : '❌'}{' '}
         </div>
       </CardContent>
     </Card>
