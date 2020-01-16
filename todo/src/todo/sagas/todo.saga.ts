@@ -4,6 +4,7 @@ import {
   loadTodosSuccessAction,
   CREATE_TODO,
   createTodoAction,
+  createTodoSuccessAction,
 } from '../actions/todo.actions';
 
 import axios from 'axios';
@@ -16,10 +17,11 @@ function* loadTodos() {
 }
 
 function* createTodo({ payload: todo }: ActionType<typeof createTodoAction>) {
-  return (yield axios.post<Todo>(`/todo/`, todo)).data;
+  const newTodo = (yield axios.post<Todo>(`/todo/`, todo)).data;
+  yield put(createTodoSuccessAction(newTodo));
 }
 
 export default function* todoSaga() {
   yield takeLatest(LOAD_TODOS, loadTodos);
-  yield takeLatest(CREATE_TODO as any, createTodo);
+  yield takeLatest(CREATE_TODO, createTodo);
 }

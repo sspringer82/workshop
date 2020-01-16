@@ -7,3 +7,5 @@ const createRootReducer = () =>
   });
 
 export default createRootReducer;
+
+export type AppState = ReturnType<ReturnType<typeof createRootReducer>>;

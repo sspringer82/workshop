@@ -4,7 +4,7 @@ import * as Yup from 'yup';
 import { TextField } from '@material-ui/core';
 import { useHistory, useParams } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
-import { createTodoAction } from './todo/actions/todo.actions';
+import { createTodoAction } from './../actions/todo.actions';
 
 const validationSchema = Yup.object().shape({
   id: Yup.string()

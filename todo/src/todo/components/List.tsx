@@ -1,19 +1,18 @@
 import React, { useState, useEffect } from 'react';
-import { Todo as TodoType } from './Todo.interface';
+import { Todo as TodoType } from '../../Todo.interface';
 import { PacmanLoader } from 'react-spinners';
 import Todo from './Todo';
 import { useHistory } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
-import { loadTodosAction } from './todo/actions/todo.actions';
+import { loadTodosAction } from '../actions/todo.actions';
+import { getTodos } from '../selectors/todo.selector';
 
 const List: React.FC = () => {
   const dispatch = useDispatch();
 
   const [isLoading, setIsLoading] = useState(true);
 
-  const todos = useSelector((state: any) => {
-    return state.todo.todos;
-  });
+  const todos = useSelector(getTodos);
 
   useEffect(() => {
     dispatch(loadTodosAction());
@@ -42,7 +41,7 @@ const List: React.FC = () => {
   } else {
     return (
       <div>
-        {todos.map((todo: any) => (
+        {todos!.map((todo: any) => (
           <Todo key={todo.id} todo={todo} onStatusChange={handleStatusChange} />
         ))}
         <hr />

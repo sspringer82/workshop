@@ -1,9 +1,9 @@
 import React, { useContext } from 'react';
-import { Todo as TodoType } from './Todo.interface';
+import { Todo as TodoType } from '../../Todo.interface';
 import Typography from '@material-ui/core/Typography';
 import { CardContent, Card, Container } from './Todo.styles';
 import { Link } from 'react-router-dom';
-import DarkMode from './DarkMode';
+import DarkMode from '../../DarkMode';
 import Brightness6Icon from '@material-ui/icons/Brightness6';
 
 interface Props {

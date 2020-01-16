@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import List from './List';
+import List from './todo/components/List';
 import DarkMode from './DarkMode';
 
 import {
@@ -9,7 +9,7 @@ import {
   Redirect,
   Link,
 } from 'react-router-dom';
-import TodoForm from './TodoForm';
+import TodoForm from './todo/components/TodoForm';
 import { Provider } from 'react-redux';
 import configureStore from './configureStore';
 const store = configureStore();

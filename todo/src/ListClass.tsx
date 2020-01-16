@@ -1,5 +1,5 @@
 import React from 'react';
-import Todo from './Todo';
+import Todo from './todo/components/Todo';
 import { Todo as TodoType } from './Todo.interface';
 import update from 'immutability-helper';
 import { PacmanLoader } from 'react-spinners';
