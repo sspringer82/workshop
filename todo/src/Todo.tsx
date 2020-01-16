@@ -2,6 +2,7 @@ import React from 'react';
 import { Todo as TodoType } from './Todo.interface';
 import Typography from '@material-ui/core/Typography';
 import { CardContent, Card } from './Todo.styles';
+import { Link } from 'react-router-dom';
 
 interface Props {
   todo: TodoType;
@@ -15,7 +16,9 @@ const Todo: React.FC<Props> = ({ todo, onStatusChange }) => {
     <Card>
       <CardContent>
         <Typography variant="h5" component="h2">
-          {title}({id})
+          <Link to={'/form/' + id}>
+            {title}({id})
+          </Link>
         </Typography>
         <div
           onClick={() => {

@@ -3,8 +3,8 @@ import { Todo as TodoType } from './Todo.interface';
 import { PacmanLoader } from 'react-spinners';
 import Todo from './Todo';
 import update from 'immutability-helper';
-import TodoForm from './TodoForm';
 import axios from 'axios';
+import { useHistory } from 'react-router-dom';
 
 const List: React.FC = () => {
   const [todos, setTodos] = useState<TodoType[]>([]);
@@ -26,10 +26,15 @@ const List: React.FC = () => {
     //   ]);
     //   setIsLoading(false);
     // }, 500);
-    axios.get<TodoType[]>('http://localhost:3001/todo').then(({ data }) => {
+    // axios.get<TodoType[]>('/todo').then(({ data }) => {
+    //   setTodos(data);
+    //   setIsLoading(false);
+    // });
+    (async () => {
+      const { data } = await axios.get<TodoType[]>('/todo');
       setTodos(data);
       setIsLoading(false);
-    });
+    })();
   }, []);
 
   const handleStatusChange = (todo: TodoType) => {
@@ -41,11 +46,13 @@ const List: React.FC = () => {
     });
   };
 
-  const handleSubmit = (todo: TodoType) => {
-    setTodos((prevState: TodoType[]) => {
-      return update(prevState, { $push: [todo] });
-    });
-  };
+  // const handleSubmit = (todo: TodoType) => {
+  //   setTodos((prevState: TodoType[]) => {
+  //     return update(prevState, { $push: [todo] });
+  //   });
+  // };
+
+  const history = useHistory();
 
   if (isLoading) {
     return <PacmanLoader size={20} color={'#123abc'} loading={true} />;
@@ -56,7 +63,14 @@ const List: React.FC = () => {
           <Todo key={todo.id} todo={todo} onStatusChange={handleStatusChange} />
         ))}
         <hr />
-        <TodoForm onSubmit={handleSubmit} />
+        {/* <TodoForm onSubmit={handleSubmit} /> */}
+        <button
+          onClick={() => {
+            history.push('/form');
+          }}
+        >
+          new
+        </button>
       </div>
     );
   }

@@ -1,3 +1,5 @@
-function foo(): [string, boolean] {
-  return ['foo', true];
-}
+function A(props: Props) {}
+
+const C = function() {};
+
+const B: React.FC<> = () => {};

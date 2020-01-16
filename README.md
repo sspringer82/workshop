@@ -26,6 +26,8 @@ https://github.com/jaredpalmer/formik
 
 https://github.com/jquense/yup
 
+https://reacttraining.com/react-router/web
+
 ## CRA (Create React App)
 
 React Apps bootstrappen

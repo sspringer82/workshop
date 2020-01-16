@@ -3,6 +3,7 @@ import { Todo as TodoType } from './Todo.interface';
 import { Formik, Field, FieldProps, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
 import { TextField } from '@material-ui/core';
+import { useHistory, useParams } from 'react-router-dom';
 
 const validationSchema = Yup.object().shape({
   id: Yup.string()
@@ -20,6 +21,10 @@ interface Props {
   onSubmit: (todo: TodoType) => void;
 }
 const TodoForm: React.FC<Props> = ({ onSubmit }) => {
+  const history = useHistory();
+  const params = useParams<{ id?: string }>();
+
+  console.log(params);
   return (
     <Formik
       initialValues={initialValue}
@@ -27,6 +32,7 @@ const TodoForm: React.FC<Props> = ({ onSubmit }) => {
       onSubmit={(values, { resetForm }) => {
         onSubmit(values);
         resetForm();
+        history.push('/list');
       }}
     >
       {({ errors, touched, handleChange, values, handleSubmit }) => (
@@ -36,6 +42,7 @@ const TodoForm: React.FC<Props> = ({ onSubmit }) => {
             handleSubmit();
           }}
         >
+          {params.id && <h1>Editing {params.id}</h1>}
           {/*Object.keys(initialValue).map(field => {
             if (typeof (initialValue as any)[field] === 'boolean') {
               return (
