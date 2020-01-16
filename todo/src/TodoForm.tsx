@@ -1,4 +1,4 @@
-import React, { useState, ChangeEvent } from 'react';
+import React from 'react';
 import { Todo as TodoType } from './Todo.interface';
 import { Formik, Field, FieldProps, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
@@ -8,7 +8,7 @@ const validationSchema = Yup.object().shape({
   id: Yup.string()
     .min(2, 'Too Short!')
     .max(50, 'Too Long!')
-    .required('Required'),
+    .required('Lieber Benutzer gib doch bitte einen Wert ein'),
   title: Yup.string()
     .min(2, 'Too Short!')
     .max(50, 'Too Long!')
