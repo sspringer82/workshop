@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { useState } from 'react';
 import List from './List';
+import DarkMode from './DarkMode';
 
 import {
   BrowserRouter as Router,
@@ -11,33 +12,36 @@ import {
 import TodoForm from './TodoForm';
 
 const App: React.FC = () => {
-  console.log('App render');
+  const [darkMode, setDarkMode] = useState(false);
 
   return (
-    <Router>
-      <ul>
-        <li>
-          <Link to="/list">Liste</Link>
-        </li>
-        <li>
-          <Link to="/form">Formular</Link>
-        </li>
-      </ul>
-      <Switch>
-        <Route path="/list">
-          <List />
-        </Route>
-        <Route path="/form/:id">
-          <TodoForm onSubmit={() => {}} />
-        </Route>
-        <Route path="/form">
-          <TodoForm onSubmit={() => {}} />
-        </Route>
-        <Route path="/" exact>
-          <Redirect to="/list"></Redirect>
-        </Route>
-      </Switch>
-    </Router>
+    <DarkMode.Provider value={darkMode}>
+      <Router>
+        <ul>
+          <li>
+            <Link to="/list">Liste</Link>
+          </li>
+          <li>
+            <Link to="/form">Formular</Link>
+          </li>
+        </ul>
+        <button onClick={() => setDarkMode(dm => !dm)}>darkMode</button>
+        <Switch>
+          <Route path="/list">
+            <List />
+          </Route>
+          <Route path="/form/:id">
+            <TodoForm onSubmit={() => {}} />
+          </Route>
+          <Route path="/form">
+            <TodoForm onSubmit={() => {}} />
+          </Route>
+          <Route path="/" exact>
+            <Redirect to="/list"></Redirect>
+          </Route>
+        </Switch>
+      </Router>
+    </DarkMode.Provider>
   );
 };
 
