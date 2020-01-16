@@ -12,6 +12,7 @@
     "@types/node": "^12.0.0",
     "@types/react": "^16.9.0",
     "@types/react-dom": "^16.9.0",
+    "axios": "^0.19.1",
     "classnames": "^2.2.6",
     "formik": "^2.1.2",
     "immutability-helper": "^3.0.1",
@@ -50,5 +51,6 @@
     "@types/classnames": "^2.2.9",
     "@types/styled-components": "^4.4.2",
     "@types/yup": "^0.26.27"
-  }
+  },
+  "proxy": "http://localhost:3001"
 }

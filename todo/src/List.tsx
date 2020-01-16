@@ -4,27 +4,32 @@ import { PacmanLoader } from 'react-spinners';
 import Todo from './Todo';
 import update from 'immutability-helper';
 import TodoForm from './TodoForm';
+import axios from 'axios';
 
 const List: React.FC = () => {
   const [todos, setTodos] = useState<TodoType[]>([]);
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    setTimeout(() => {
-      setTodos([
-        {
-          id: '1',
-          title: 'Get up',
-          done: true,
-        },
-        {
-          id: '2',
-          title: 'Have Breakfast',
-          done: false,
-        },
-      ]);
+    // setTimeout(() => {
+    //   setTodos([
+    //     {
+    //       id: '1',
+    //       title: 'Get up',
+    //       done: true,
+    //     },
+    //     {
+    //       id: '2',
+    //       title: 'Have Breakfast',
+    //       done: false,
+    //     },
+    //   ]);
+    //   setIsLoading(false);
+    // }, 500);
+    axios.get<TodoType[]>('http://localhost:3001/todo').then(({ data }) => {
+      setTodos(data);
       setIsLoading(false);
-    }, 500);
+    });
   }, []);
 
   const handleStatusChange = (todo: TodoType) => {
