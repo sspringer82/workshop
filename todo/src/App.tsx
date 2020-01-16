@@ -15,7 +15,7 @@ const App: React.FC = () => {
   const [darkMode, setDarkMode] = useState(false);
 
   return (
-    <DarkMode.Provider value={darkMode}>
+    <DarkMode.Provider value={{ darkMode, setDarkMode }}>
       <Router>
         <ul>
           <li>

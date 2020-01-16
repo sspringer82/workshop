@@ -4,6 +4,7 @@ import Typography from '@material-ui/core/Typography';
 import { CardContent, Card, Container } from './Todo.styles';
 import { Link } from 'react-router-dom';
 import DarkMode from './DarkMode';
+import Brightness6Icon from '@material-ui/icons/Brightness6';
 
 interface Props {
   todo: TodoType;
@@ -13,7 +14,7 @@ interface Props {
 const Todo: React.FC<Props> = ({ todo, onStatusChange }) => {
   const { id, title, done } = todo;
 
-  const darkMode = useContext(DarkMode);
+  const { darkMode, setDarkMode } = useContext(DarkMode);
 
   return (
     <Card>
@@ -31,6 +32,13 @@ const Todo: React.FC<Props> = ({ todo, onStatusChange }) => {
           >
             {done ? '✅' : '❌'}{' '}
           </div>
+          <button
+            onClick={() => {
+              setDarkMode(!darkMode);
+            }}
+          >
+            <Brightness6Icon />
+          </button>
         </CardContent>
       </Container>
     </Card>
