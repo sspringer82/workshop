@@ -108,9 +108,38 @@ npm install redux react-redux
 npm install -D @types/react-redux
 
 npm install redux-devtools-extension
+Redux Devtools: https://chrome.google.com/webstore/detail/redux-devtools/lmhkpmbekcpmknklioeibfkpmmfibljd?hl=de
 
 1. In der App.tsx den Redux Provider einbinden
 2. Store erzeugen und an den Provider übergeben
 3. RootReducer erzeugen, der über combineReducers alle Reducer der Applikation zusammenfasst
 4. TodoReducer erzeugen (switch/case), der einen initalen State definiert
-5. useSelector lesend auf den Store zugreifen und Information an die Komponente übergeben
+5. in der List-Komponente: useSelector lesend auf den Store zugreifen und Information an die Komponente übergeben
+
+Saga:
+
+1. Installation: npm install redux-saga
+2. In der configureStore die sagaMiddleware erzeugen
+3. Über applyMiddleware die sagaMiddleware in den Store einbinden
+4. SagaMiddleware mit der rootSaga ausführen
+5. RootSaga implementieren und die einzelnen Modul-Sagas (z.B. todo) einbinden
+6. Modul-Saga implementieren (z.B. Todo)
+
+Actions
+
+1. npm install typesafe-actions
+2. todo.actions.ts-Datei erzeugen
+3. LOAD_TODOS und LOAD_TODOS_SUCCESS konstanten
+
+Action dispatchen
+
+1. in der List-Komponente useDispatch aufrufen
+2. mit dem Rückgabewert die Action dispatchen (dispatch(loadTodosAction()))
+
+Saga implementieren
+
+1. Generator Funktion (loadTodos) schreiben und in die Saga-Funktion (todoSaga) einbinden mit takeLatest an die Action binden
+
+Reducer implementieren
+
+1. Switch/Case erweitern und auf die LOAD_TODOS_SUCCESS Action reagieren - neuen State erzeugen in dem die Daten vom Server enthalten sind

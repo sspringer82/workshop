@@ -2,13 +2,13 @@ import React, { useState, useEffect } from 'react';
 import { Todo as TodoType } from './Todo.interface';
 import { PacmanLoader } from 'react-spinners';
 import Todo from './Todo';
-import update from 'immutability-helper';
-import axios from 'axios';
 import { useHistory } from 'react-router-dom';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
+import { loadTodosAction } from './todo/actions/todo.actions';
 
 const List: React.FC = () => {
-  const [todos, setTodos] = useState<TodoType[]>([]);
+  const dispatch = useDispatch();
+
   const [isLoading, setIsLoading] = useState(true);
 
   const todos2 = useSelector((state: any) => {
@@ -16,40 +16,17 @@ const List: React.FC = () => {
   });
 
   useEffect(() => {
+    dispatch(loadTodosAction());
     setIsLoading(false);
-    // setTimeout(() => {
-    //   setTodos([
-    //     {
-    //       id: '1',
-    //       title: 'Get up',
-    //       done: true,
-    //     },
-    //     {
-    //       id: '2',
-    //       title: 'Have Breakfast',
-    //       done: false,
-    //     },
-    //   ]);
-    //   setIsLoading(false);
-    // }, 500);
-    // axios.get<TodoType[]>('/todo').then(({ data }) => {
-    //   setTodos(data);
-    //   setIsLoading(false);
-    // });
-    // (async () => {
-    //   const { data } = await axios.get<TodoType[]>('/todo');
-    //   setTodos(data);
-    //   setIsLoading(false);
-    // })();
   }, []);
 
   const handleStatusChange = (todo: TodoType) => {
-    setTodos((prevState: TodoType[]) => {
-      const index = prevState.findIndex(t => t.id === todo.id);
-      return update(prevState, {
-        [index]: { $toggle: ['done'] },
-      });
-    });
+    // setTodos((prevState: TodoType[]) => {
+    //   const index = prevState.findIndex(t => t.id === todo.id);
+    //   return update(prevState, {
+    //     [index]: { $toggle: ['done'] },
+    //   });
+    // });
   };
 
   // const handleSubmit = (todo: TodoType) => {
