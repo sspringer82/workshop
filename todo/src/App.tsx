@@ -35,10 +35,10 @@ const App: React.FC = () => {
               <List />
             </Route>
             <Route path="/form/:id">
-              <TodoForm onSubmit={() => {}} />
+              <TodoForm />
             </Route>
             <Route path="/form">
-              <TodoForm onSubmit={() => {}} />
+              <TodoForm />
             </Route>
             <Route path="/" exact>
               <Redirect to="/list"></Redirect>

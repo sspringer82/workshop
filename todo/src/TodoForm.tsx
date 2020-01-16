@@ -1,9 +1,10 @@
 import React from 'react';
-import { Todo as TodoType } from './Todo.interface';
 import { Formik, Field, FieldProps, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
 import { TextField } from '@material-ui/core';
 import { useHistory, useParams } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { createTodoAction } from './todo/actions/todo.actions';
 
 const validationSchema = Yup.object().shape({
   id: Yup.string()
@@ -17,20 +18,18 @@ const validationSchema = Yup.object().shape({
 });
 const initialValue = { id: '', title: '', done: false };
 
-interface Props {
-  onSubmit: (todo: TodoType) => void;
-}
-const TodoForm: React.FC<Props> = ({ onSubmit }) => {
+const TodoForm: React.FC = () => {
   const history = useHistory();
   const params = useParams<{ id?: string }>();
 
-  console.log(params);
+  const dispatch = useDispatch();
+
   return (
     <Formik
       initialValues={initialValue}
       validationSchema={validationSchema}
-      onSubmit={(values, { resetForm }) => {
-        onSubmit(values);
+      onSubmit={({ title, done }, { resetForm }) => {
+        dispatch(createTodoAction({ title, done }));
         resetForm();
         history.push('/list');
       }}

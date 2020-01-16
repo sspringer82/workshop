@@ -11,14 +11,14 @@ const List: React.FC = () => {
 
   const [isLoading, setIsLoading] = useState(true);
 
-  const todos2 = useSelector((state: any) => {
+  const todos = useSelector((state: any) => {
     return state.todo.todos;
   });
 
   useEffect(() => {
     dispatch(loadTodosAction());
     setIsLoading(false);
-  }, []);
+  }, [dispatch]);
 
   const handleStatusChange = (todo: TodoType) => {
     // setTodos((prevState: TodoType[]) => {
@@ -42,7 +42,7 @@ const List: React.FC = () => {
   } else {
     return (
       <div>
-        {todos2.map((todo: any) => (
+        {todos.map((todo: any) => (
           <Todo key={todo.id} todo={todo} onStatusChange={handleStatusChange} />
         ))}
         <hr />
