@@ -22,6 +22,10 @@ https://material.io/design/
 
 https://react-bootstrap.github.io/
 
+https://github.com/jaredpalmer/formik
+
+https://github.com/jquense/yup
+
 ## CRA (Create React App)
 
 React Apps bootstrappen
@@ -87,3 +91,9 @@ Die Bibliothek Styled-Components bietet noch mehr Flexibilität, da auf Props et
 Styled Components basiert auf JavaScript Template Strings und implementiert verschiedene Tagging Functions, die Komponenten zurückgeben.
 
 https://styled-components.com/
+
+## Formulare
+
+Controlled Components: Formularelemente, bei denen React die Kontrolle übernimmt. Der value ist mit dem State verknüpft, dieser wird mittels setState verändert.
+
+Validierung: entweder manuell oder über externe Bibliotheken wie Formik (und Yup).

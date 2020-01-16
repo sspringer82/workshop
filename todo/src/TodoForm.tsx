@@ -36,6 +36,26 @@ const TodoForm: React.FC<Props> = ({ onSubmit }) => {
             handleSubmit();
           }}
         >
+          {/*Object.keys(initialValue).map(field => {
+            if (typeof (initialValue as any)[field] === 'boolean') {
+              return (
+                <input
+                  name={field}
+                  type="checkbox"
+                  checked={(values as any)[field]}
+                  onChange={handleChange}
+                />
+              );
+            } else {
+              return (
+                <div>
+                  <Field name={field} />
+                  <ErrorMessage name={field} />
+                </div>
+              );
+            }
+          })*/}
+
           <div>
             <Field name="id" />
             {errors.id && touched.id ? <div>{errors.id}</div> : null}
