@@ -99,3 +99,18 @@ https://styled-components.com/
 Controlled Components: Formularelemente, bei denen React die Kontrolle übernimmt. Der value ist mit dem State verknüpft, dieser wird mittels setState verändert.
 
 Validierung: entweder manuell oder über externe Bibliotheken wie Formik (und Yup).
+
+## Redux
+
+### Installation
+
+npm install redux react-redux
+npm install -D @types/react-redux
+
+npm install redux-devtools-extension
+
+1. In der App.tsx den Redux Provider einbinden
+2. Store erzeugen und an den Provider übergeben
+3. RootReducer erzeugen, der über combineReducers alle Reducer der Applikation zusammenfasst
+4. TodoReducer erzeugen (switch/case), der einen initalen State definiert
+5. useSelector lesend auf den Store zugreifen und Information an die Komponente übergeben

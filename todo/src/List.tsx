@@ -5,12 +5,18 @@ import Todo from './Todo';
 import update from 'immutability-helper';
 import axios from 'axios';
 import { useHistory } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 
 const List: React.FC = () => {
   const [todos, setTodos] = useState<TodoType[]>([]);
   const [isLoading, setIsLoading] = useState(true);
 
+  const todos2 = useSelector((state: any) => {
+    return state.todo.todos;
+  });
+
   useEffect(() => {
+    setIsLoading(false);
     // setTimeout(() => {
     //   setTodos([
     //     {
@@ -30,11 +36,11 @@ const List: React.FC = () => {
     //   setTodos(data);
     //   setIsLoading(false);
     // });
-    (async () => {
-      const { data } = await axios.get<TodoType[]>('/todo');
-      setTodos(data);
-      setIsLoading(false);
-    })();
+    // (async () => {
+    //   const { data } = await axios.get<TodoType[]>('/todo');
+    //   setTodos(data);
+    //   setIsLoading(false);
+    // })();
   }, []);
 
   const handleStatusChange = (todo: TodoType) => {
@@ -59,7 +65,7 @@ const List: React.FC = () => {
   } else {
     return (
       <div>
-        {todos.map(todo => (
+        {todos2.map((todo: any) => (
           <Todo key={todo.id} todo={todo} onStatusChange={handleStatusChange} />
         ))}
         <hr />
