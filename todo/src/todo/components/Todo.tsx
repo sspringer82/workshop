@@ -22,10 +22,11 @@ const Todo: React.FC<Props> = ({ todo, onStatusChange }) => {
         <CardContent>
           <Typography variant="h5" component="h2">
             <Link to={'/form/' + id}>
-              {title}({id})
+              <span data-testid="title">{title}</span>({id})
             </Link>
           </Typography>
           <div
+            data-testid="changeStatus"
             onClick={() => {
               onStatusChange(todo);
             }}

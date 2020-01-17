@@ -28,6 +28,8 @@ https://github.com/jquense/yup
 
 https://reacttraining.com/react-router/web
 
+https://reactjs.org/blog/2017/09/26/react-v16.0.html
+
 ## CRA (Create React App)
 
 React Apps bootstrappen
@@ -146,5 +148,20 @@ Reducer implementieren
 
 ## Testing
 
+Ausführung der Tests: `npm test`
+Es müssen keine zusätzlichen Pakete installiert werden.
+
 - Jest: https://jestjs.io/
 - Matcher: https://jestjs.io/docs/en/expect
+- Saga Testing: https://redux-saga.js.org/docs/advanced/Testing.html
+- Axios Mock Adapter: https://github.com/ctimmerm/axios-mock-adapter
+- Faker: https://github.com/marak/Faker.js/
+
+- https://reactjs.org/docs/testing-recipes.html#rendering
+- enzyme: https://airbnb.io/enzyme/
+- https://testing-library.com/docs/react-testing-library/intro
+
+Installation:
+npm install -D @testing-library/react
+
+coverage: npm test -- --collect-coverage
