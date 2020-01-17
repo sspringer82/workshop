@@ -143,3 +143,8 @@ Saga implementieren
 Reducer implementieren
 
 1. Switch/Case erweitern und auf die LOAD_TODOS_SUCCESS Action reagieren - neuen State erzeugen in dem die Daten vom Server enthalten sind
+
+## Testing
+
+- Jest: https://jestjs.io/
+- Matcher: https://jestjs.io/docs/en/expect

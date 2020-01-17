@@ -19,21 +19,6 @@ const List: React.FC = () => {
     setIsLoading(false);
   }, [dispatch]);
 
-  const handleStatusChange = (todo: TodoType) => {
-    // setTodos((prevState: TodoType[]) => {
-    //   const index = prevState.findIndex(t => t.id === todo.id);
-    //   return update(prevState, {
-    //     [index]: { $toggle: ['done'] },
-    //   });
-    // });
-  };
-
-  // const handleSubmit = (todo: TodoType) => {
-  //   setTodos((prevState: TodoType[]) => {
-  //     return update(prevState, { $push: [todo] });
-  //   });
-  // };
-
   const history = useHistory();
 
   if (isLoading) {
@@ -42,10 +27,9 @@ const List: React.FC = () => {
     return (
       <div>
         {todos!.map((todo: any) => (
-          <Todo key={todo.id} todo={todo} onStatusChange={handleStatusChange} />
+          <Todo key={todo.id} todo={todo} onStatusChange={() => {}} />
         ))}
         <hr />
-        {/* <TodoForm onSubmit={handleSubmit} /> */}
         <button
           onClick={() => {
             history.push('/form');
