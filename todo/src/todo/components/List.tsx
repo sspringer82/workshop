@@ -6,20 +6,10 @@ import { useHistory } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { loadTodosAction } from '../actions/todo.actions';
 import { getTodos } from '../selectors/todo.selector';
+import useList from './useList';
 
 const List: React.FC = () => {
-  const dispatch = useDispatch();
-
-  const [isLoading, setIsLoading] = useState(true);
-
-  const todos = useSelector(getTodos);
-
-  useEffect(() => {
-    dispatch(loadTodosAction());
-    setIsLoading(false);
-  }, [dispatch]);
-
-  const history = useHistory();
+  const [isLoading, todos, history] = useList();
 
   if (isLoading) {
     return <PacmanLoader size={20} color={'#123abc'} loading={true} />;
