@@ -30,6 +30,10 @@ https://reacttraining.com/react-router/web
 
 https://reactjs.org/blog/2017/09/26/react-v16.0.html
 
+https://storybook.js.org/
+
+https://eslint.org/eslint.org
+
 ## CRA (Create React App)
 
 React Apps bootstrappen
