@@ -1,21 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Recipe } from './recipe';
 
-const initialRecipes = [
-  {
-    id: 1,
-    title: 'Schnitzel',
-    ingredients: ['1000g Fleisch'],
-    steps: ['braten'],
-  },
-  {
-    id: 2,
-    title: 'Tomatensuppe',
-    ingredients: ['1000g Tomaten', '1l Wasser'],
-    steps: ['kochen', 'umrühren'],
-  },
-];
-
 const List: React.FC = () => {
   const [recipes, setRecipes] = useState<Recipe[]>([]);
 
