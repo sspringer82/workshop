@@ -14,8 +14,14 @@
 Bestehende Applikation weiterentwickeln:
 
 - sourcecode holen
-- ins verzeichnis wechseln
+- ins Verzeichnis wechseln
 - npm install
+- npm start
+
+Neue Applikation:
+
+- npx create-react-app workshop --template typescript --use-npm
+- cd workshop
 - npm start
 
 ## Links
