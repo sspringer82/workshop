@@ -1,6 +1,5 @@
 import React from 'react';
 import List from './List';
-import Form from './demo/Form';
 
 function getAppName() {
   return 'Kochbuch';
@@ -9,9 +8,8 @@ function getAppName() {
 const App: React.FC = () => {
   return (
     <div>
-      Hallo {getAppName()}
+      <h1>Hallo {getAppName()}</h1>
       <List />
-      <Form />
     </div>
   );
 };

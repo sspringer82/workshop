@@ -1,8 +1,9 @@
-import React, { useEffect, useState } from 'react';
+import React, { ChangeEvent, useEffect, useState } from 'react';
 import { Recipe } from './recipe';
 
 const List: React.FC = () => {
   const [recipes, setRecipes] = useState<Recipe[]>([]);
+  const [filter, setFilter] = useState<string>('');
 
   useEffect(() => {
     (async () => {
@@ -24,21 +25,44 @@ const List: React.FC = () => {
     }
   }
 
+  function handleFilterChange(e: ChangeEvent<HTMLInputElement>): void {
+    setFilter(e.target.value);
+  }
+
   if (recipes.length === 0) {
     return <div>No Recipes found</div>;
   }
 
   return (
-    <ul>
-      {recipes.map((recipe) => {
-        return (
-          <li key={recipe.id}>
-            {recipe.title}
-            <button onClick={() => handleClick(recipe.id)}>delete</button>
-          </li>
-        );
-      })}
-    </ul>
+    <>
+      <label>
+        Find recipes:
+        <input
+          type="text"
+          name="filter"
+          id="filter"
+          value={filter}
+          onChange={handleFilterChange}
+        />
+      </label>
+      <ul>
+        {recipes
+          .filter((recipe) => {
+            return (
+              filter.length === 0 ||
+              recipe.title.toLowerCase().includes(filter.toLowerCase())
+            );
+          })
+          .map((recipe) => {
+            return (
+              <li key={recipe.id}>
+                {recipe.title}
+                <button onClick={() => handleClick(recipe.id)}>delete</button>
+              </li>
+            );
+          })}
+      </ul>
+    </>
   );
 };
 
