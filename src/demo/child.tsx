@@ -24,3 +24,6 @@ type Props = {
 const Child: React.FC<Props> = ({ title, onDelete }) => {
   return <div onClick={() => onDelete(title)}>{title}</div>;
 };
+
+// const Child = ({ title }: Props) => {};
+// const Child: React.FC<Props> = ({ title }) => {};
