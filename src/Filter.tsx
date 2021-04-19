@@ -1,11 +1,15 @@
-import React, { ChangeEvent } from 'react';
+import React, { ChangeEvent, Dispatch, SetStateAction } from 'react';
 
 type Props = {
   filter: string;
-  onFilterChange: (e: ChangeEvent<HTMLInputElement>) => void;
+  setFilter: Dispatch<SetStateAction<string>>;
 };
 
-const Filer: React.FC<Props> = ({ filter, onFilterChange }) => {
+const Filer: React.FC<Props> = ({ filter, setFilter }) => {
+  function handleFilterChange(e: ChangeEvent<HTMLInputElement>): void {
+    setFilter(e.target.value);
+  }
+
   return (
     <label>
       Find recipes:
@@ -14,7 +18,7 @@ const Filer: React.FC<Props> = ({ filter, onFilterChange }) => {
         name="filter"
         id="filter"
         value={filter}
-        onChange={onFilterChange}
+        onChange={handleFilterChange}
       />
     </label>
   );

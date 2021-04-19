@@ -1,4 +1,4 @@
-import React, { ChangeEvent, useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Filter from './Filter';
 import ListItem from './ListItem';
 import { Recipe } from './recipe';
@@ -27,17 +27,13 @@ const List: React.FC = () => {
     }
   }
 
-  function handleFilterChange(e: ChangeEvent<HTMLInputElement>): void {
-    setFilter(e.target.value);
-  }
-
   if (recipes.length === 0) {
     return <div>No Recipes found</div>;
   }
 
   return (
     <>
-      <Filter filter={filter} onFilterChange={handleFilterChange} />
+      <Filter filter={filter} setFilter={setFilter} />
       <ul>
         {recipes
           .filter((recipe) => {
