@@ -1,11 +1,11 @@
-import React, { FormEvent, useState } from 'react';
+import React, { ChangeEvent, FormEvent, useState } from 'react';
 
 const Form: React.FC = () => {
   const [state, setState] = useState<{ firstname: string }>({
     firstname: 'Klaus',
   });
 
-  function handleChange(e: any) {
+  function handleChange(e: ChangeEvent<HTMLInputElement>): void {
     const name = e.target.name;
     const value = e.target.value;
 
@@ -17,7 +17,7 @@ const Form: React.FC = () => {
     });
   }
 
-  function handleSubmit(e: FormEvent) {
+  function handleSubmit(e: FormEvent): void {
     e.preventDefault();
 
     console.log('i want to save ', state);
