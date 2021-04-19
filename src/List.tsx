@@ -19,6 +19,7 @@ const List: React.FC = () => {
   const [recipes, setRecipes] = useState<{ id: number; title: string }[]>([]);
 
   useEffect(() => {
+    setRecipes([{ id: 1, title: 'foo' }]);
     fetch('http://localhost:3001/recipe')
       .then((response) => response.json())
       .then((data) => console.log(data));
