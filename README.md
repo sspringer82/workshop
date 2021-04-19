@@ -29,3 +29,11 @@ Neue Applikation:
 - https://docs.npmjs.com/cli/v7/using-npm/scripts
 - https://github.com/browserslist/browserslist
 - https://create-react-app.dev/docs/supported-browsers-features/
+
+## Backend
+
+- npm install json-server
+- data.json erzeugen (oder kopieren)
+- package.json > scripts > backend script erzeugen
+  `"backend": "json-server -w data.json -p 3001"`
+- npm run backend (ACHTUNG: backend und start müssen parallel ausgeführt werden)

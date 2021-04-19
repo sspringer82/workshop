@@ -1,6 +1,6 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 
-const recipes = [
+const initialRecipes = [
   {
     id: 1,
     title: 'Schnitzel',
@@ -15,23 +15,17 @@ const recipes = [
   },
 ];
 
-// const recipes: any[] = [];
-
-// const List: React.FC = () => {
-//   return (
-//     <ul>
-//       {recipes.length > 0 ? (
-//         recipes.map((recipe) => {
-//           return <li key={recipe.id}>{recipe.title}</li>;
-//         })
-//       ) : (
-//         <li>No Recipes found</li>
-//       )}
-//     </ul>
-//   );
-// };
-
 const List: React.FC = () => {
+  const [recipes, setRecipes] = useState(initialRecipes);
+
+  useEffect(() => {
+    setTimeout(() => {
+      setRecipes((oldRecipes) => {
+        return [oldRecipes[0]];
+      });
+    }, 2000);
+  }, []);
+
   if (recipes.length === 0) {
     return <div>No Recipes found</div>;
   }
