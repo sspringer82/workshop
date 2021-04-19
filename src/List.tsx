@@ -17,7 +17,10 @@ const List: React.FC = () => {
       method: 'DELETE',
     });
     if (response.ok) {
-      setRecipes((oldRecipe) => oldRecipe.filter((recipe) => recipe.id !== id));
+      setRecipes((oldRecipe) => {
+        const newRecipe = oldRecipe.filter((recipe) => recipe.id !== id);
+        return newRecipe;
+      });
     }
   }
 
