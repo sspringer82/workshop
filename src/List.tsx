@@ -12,6 +12,15 @@ const List: React.FC = () => {
     })();
   }, []);
 
+  async function handleClick(id: number): Promise<void> {
+    const response = await fetch('http://localhost:3001/recipe/' + id, {
+      method: 'DELETE',
+    });
+    if (response.ok) {
+      setRecipes((oldRecipe) => oldRecipe.filter((recipe) => recipe.id !== id));
+    }
+  }
+
   if (recipes.length === 0) {
     return <div>No Recipes found</div>;
   }
@@ -19,7 +28,12 @@ const List: React.FC = () => {
   return (
     <ul>
       {recipes.map((recipe) => {
-        return <li key={recipe.id}>{recipe.title}</li>;
+        return (
+          <li key={recipe.id}>
+            {recipe.title}
+            <button onClick={() => handleClick(recipe.id)}>delete</button>
+          </li>
+        );
       })}
     </ul>
   );
