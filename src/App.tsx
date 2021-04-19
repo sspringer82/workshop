@@ -1,5 +1,5 @@
 import React from 'react';
-import Component from './demo/component';
+import List from './List';
 
 function getAppName() {
   return 'Kochbuch';
@@ -9,7 +9,7 @@ const App: React.FC = () => {
   return (
     <div>
       Hallo {getAppName()}
-      <Component />
+      <List />
     </div>
   );
 };

@@ -17,6 +17,7 @@ const recipes = [
 
 const Component = () => {
   const a = [1, 2, 3];
+  console.log(recipes);
 
   const cond = false;
 
