@@ -1,4 +1,5 @@
 import React from 'react';
+import Style from './demo/Style/Style';
 import List from './List';
 
 function getAppName() {
@@ -10,6 +11,7 @@ const App: React.FC = () => {
     <div>
       <h1>Hallo {getAppName()}</h1>
       <List />
+      <Style />
     </div>
   );
 };

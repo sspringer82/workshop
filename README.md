@@ -37,3 +37,21 @@ Neue Applikation:
 - package.json > scripts > backend script erzeugen
   `"backend": "json-server -w data.json -p 3001"`
 - npm run backend (ACHTUNG: backend und start müssen parallel ausgeführt werden)
+
+## Styling
+
+- Inline Styling: <div style={{color: 'white'}}>
+- Styling über Klassen + externes Stylesheet: <div className="foo">
+  - import './List.css';
+- SCSS: Support von https://sass-lang.com/
+  - npm install node-sass
+  - import './List.scss';
+- CSS modules: auf die Komponente namespaced
+  - Komponente: List.tsx
+    import style from './List.module.css';
+    <div className={style.foo}>
+  - CSS Module: List.module.css
+- Styled Components: https://styled-components.com/
+  - Installation: npm i styled-components
+- Tailwind https://tailwindcss.com/
+  - Verwendung mit React: https://tailwindcss.com/docs/guides/create-react-app
