@@ -16,14 +16,12 @@ const initialRecipes = [
 ];
 
 const List: React.FC = () => {
-  const [recipes, setRecipes] = useState(initialRecipes);
+  const [recipes, setRecipes] = useState<{ id: number; title: string }[]>([]);
 
   useEffect(() => {
-    setTimeout(() => {
-      setRecipes((oldRecipes) => {
-        return [oldRecipes[0]];
-      });
-    }, 2000);
+    fetch('http://localhost:3001/recipe')
+      .then((response) => response.json())
+      .then((data) => console.log(data));
   }, []);
 
   if (recipes.length === 0) {
