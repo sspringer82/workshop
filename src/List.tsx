@@ -1,4 +1,6 @@
 import React, { ChangeEvent, useEffect, useState } from 'react';
+import Filter from './Filter';
+import ListItem from './ListItem';
 import { Recipe } from './recipe';
 
 const List: React.FC = () => {
@@ -13,7 +15,7 @@ const List: React.FC = () => {
     })();
   }, []);
 
-  async function handleClick(id: number): Promise<void> {
+  async function handleDelete(id: number): Promise<void> {
     const response = await fetch('http://localhost:3001/recipe/' + id, {
       method: 'DELETE',
     });
@@ -35,16 +37,7 @@ const List: React.FC = () => {
 
   return (
     <>
-      <label>
-        Find recipes:
-        <input
-          type="text"
-          name="filter"
-          id="filter"
-          value={filter}
-          onChange={handleFilterChange}
-        />
-      </label>
+      <Filter filter={filter} onFilterChange={handleFilterChange} />
       <ul>
         {recipes
           .filter((recipe) => {
@@ -55,10 +48,11 @@ const List: React.FC = () => {
           })
           .map((recipe) => {
             return (
-              <li key={recipe.id}>
-                {recipe.title}
-                <button onClick={() => handleClick(recipe.id)}>delete</button>
-              </li>
+              <ListItem
+                key={recipe.id}
+                recipe={recipe}
+                onDelete={handleDelete}
+              />
             );
           })}
       </ul>
