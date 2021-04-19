@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { Recipe } from './recipe';
 
 const initialRecipes = [
   {
@@ -16,13 +17,14 @@ const initialRecipes = [
 ];
 
 const List: React.FC = () => {
-  const [recipes, setRecipes] = useState<{ id: number; title: string }[]>([]);
+  const [recipes, setRecipes] = useState<Recipe[]>([]);
 
   useEffect(() => {
-    setRecipes([{ id: 1, title: 'foo' }]);
-    fetch('http://localhost:3001/recipe')
-      .then((response) => response.json())
-      .then((data) => console.log(data));
+    (async () => {
+      const response = await fetch('http://localhost:3001/recipe');
+      const data = await response.json();
+      setRecipes(data);
+    })();
   }, []);
 
   if (recipes.length === 0) {
