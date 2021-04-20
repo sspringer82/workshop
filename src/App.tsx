@@ -9,7 +9,9 @@ function getAppName() {
 const App: React.FC = () => {
   return (
     <div>
-      <h1>Hallo {getAppName()}</h1>
+      <h1 className="container border rounded shadow mx-4 text-xl font-bold">
+        Hallo {getAppName()}
+      </h1>
       <List />
       <Style />
     </div>
