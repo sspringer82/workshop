@@ -1,7 +1,6 @@
 import React from 'react';
 import CustomHooks from './demo/CustomHooks';
 import FormikForm from './demo/FormikForm';
-import Style from './demo/Style/Style';
 import RecipeList from './Recipe/RecipeList/RecipeList';
 
 function getAppName() {
