@@ -1,5 +1,5 @@
 import React from 'react';
-import BaseForm from './demo/BaseForm';
+import FormikForm from './demo/FormikForm';
 import Style from './demo/Style/Style';
 import RecipeList from './Recipe/RecipeList/RecipeList';
 
@@ -15,7 +15,7 @@ const App: React.FC = () => {
       </h1>
       <RecipeList />
       <Style />
-      <BaseForm />
+      <FormikForm />
     </div>
   );
 };

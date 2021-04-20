@@ -35,7 +35,6 @@ const Form: React.FC<Props> = ({ onSave }) => {
   }
 
   function handleSubmit(e: FormEvent): void {
-    debugger;
     e.preventDefault();
     fetch('http://localhost:3001/recipe', {
       method: 'POST',
