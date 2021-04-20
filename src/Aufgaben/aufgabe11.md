@@ -1,6 +1,8 @@
 # Router
 
-Integegriere den React Router. Definiere folgende Routen:
+Integegriere den React Router (https://reactrouter.com/web/guides/quick-start)
+
+Definiere folgende Routen:
 
 - /list: Listenansicht
 - /form: Formular
