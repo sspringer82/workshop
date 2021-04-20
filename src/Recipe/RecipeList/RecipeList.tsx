@@ -1,11 +1,10 @@
 import React, { useState } from 'react';
 import Filter from '../../util/Filter';
-import Form from '../RecipeForm/RecipeForm';
 import RecipeListItem from './RecipeListItem';
 import { useRecipe } from './useRecipe';
 
 const RecipeList: React.FC = () => {
-  const { recipes, handleDelete, handleSave } = useRecipe();
+  const { recipes, handleDelete } = useRecipe();
   const [filter, setFilter] = useState<string>('');
 
   if (recipes.length === 0) {
@@ -33,8 +32,6 @@ const RecipeList: React.FC = () => {
             );
           })}
       </ul>
-      <hr />
-      <Form onSave={handleSave} />
     </>
   );
 };

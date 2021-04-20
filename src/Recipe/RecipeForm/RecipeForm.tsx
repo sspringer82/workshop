@@ -1,10 +1,10 @@
 import { Form as FormikForm, Formik, Field, ErrorMessage } from 'formik';
 import React from 'react';
-import { Recipe } from '../../util/recipe';
 import * as Yup from 'yup';
+import { useRecipe } from '../RecipeList/useRecipe';
 
 type Props = {
-  onSave: (newRecipe: Recipe) => void;
+  // onSave: (newRecipe: Recipe) => void;
 };
 
 const RecipeSchema = Yup.object().shape({
@@ -14,7 +14,8 @@ const RecipeSchema = Yup.object().shape({
     .required('Pflichtfeld'),
 });
 
-const Form: React.FC<Props> = ({ onSave }) => {
+const Form: React.FC<Props> = () => {
+  const { handleSave } = useRecipe();
   return (
     <div>
       <h1>Formik</h1>
@@ -33,7 +34,7 @@ const Form: React.FC<Props> = ({ onSave }) => {
           })
             .then((response) => response.json())
             .then((data) => {
-              onSave(data);
+              handleSave(data);
               setSubmitting(false);
             });
         }}

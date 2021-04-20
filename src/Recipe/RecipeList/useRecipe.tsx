@@ -1,6 +1,7 @@
-import { useEffect, useState } from 'react';
+import { useContext, useEffect } from 'react';
 import { Recipe } from '../../util/recipe';
 import produce from 'immer';
+import { RecipeContext } from '../../RecipeContext';
 
 type ReturnValue = {
   recipes: Recipe[];
@@ -9,7 +10,8 @@ type ReturnValue = {
 };
 
 export function useRecipe(): ReturnValue {
-  const [recipes, setRecipes] = useState<Recipe[]>([]);
+  // const [recipes, setRecipes] = useState<Recipe[]>([]);
+  const [recipes, setRecipes] = useContext(RecipeContext);
 
   useEffect(() => {
     (async () => {
@@ -17,7 +19,7 @@ export function useRecipe(): ReturnValue {
       const data = await response.json();
       setRecipes(data);
     })();
-  }, []);
+  }, [setRecipes]);
 
   async function handleDelete(id: number): Promise<void> {
     const response = await fetch('http://localhost:3001/recipe/' + id, {

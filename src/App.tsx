@@ -1,7 +1,7 @@
 import React from 'react';
-import Context from './demo/Context';
-import FormikForm from './demo/FormikForm';
+import Form from './Recipe/RecipeForm/RecipeForm';
 import RecipeList from './Recipe/RecipeList/RecipeList';
+import RecipeProvider from './RecipeContext';
 
 function getAppName() {
   return 'Kochbuch';
@@ -9,14 +9,14 @@ function getAppName() {
 
 const App: React.FC = () => {
   return (
-    <div>
+    <RecipeProvider>
       <h1 className="container border rounded shadow mx-4 text-xl font-bold">
         Hallo {getAppName()}
       </h1>
       <RecipeList />
-      <FormikForm />
-      <Context />
-    </div>
+      <hr />
+      <Form />
+    </RecipeProvider>
   );
 };
 
