@@ -3,6 +3,7 @@ import Filter from '../../util/Filter';
 import Form from '../RecipeForm/RecipeForm';
 import RecipeListItem from './RecipeListItem';
 import { Recipe } from '../../util/recipe';
+import produce from 'immer';
 
 const RecipeList: React.FC = () => {
   const [recipes, setRecipes] = useState<Recipe[]>([]);
@@ -56,11 +57,11 @@ const RecipeList: React.FC = () => {
       <hr />
       <Form
         onSave={(newRecipe: Recipe) =>
-          setRecipes((oldRecipes) => {
-            const clone = [...oldRecipes];
-            clone.push(newRecipe);
-            return clone;
-          })
+          setRecipes((oldRecipes) =>
+            produce(oldRecipes, (draftState) => {
+              draftState.push(newRecipe);
+            }),
+          )
         }
       />
     </>

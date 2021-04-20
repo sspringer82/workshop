@@ -55,3 +55,9 @@ Neue Applikation:
   - Installation: npm i styled-components
 - Tailwind https://tailwindcss.com/
   - Verwendung mit React: https://tailwindcss.com/docs/guides/create-react-app
+
+## Immutability
+
+- https://github.com/kolodny/immutability-helper
+- https://github.com/immerjs/immer
+- https://immutable-js.github.io/immutable-js/
