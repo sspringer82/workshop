@@ -1,5 +1,5 @@
 import React from 'react';
-import CustomHooks from './demo/CustomHooks';
+import Context from './demo/Context';
 import FormikForm from './demo/FormikForm';
 import RecipeList from './Recipe/RecipeList/RecipeList';
 
@@ -15,7 +15,7 @@ const App: React.FC = () => {
       </h1>
       <RecipeList />
       <FormikForm />
-      <CustomHooks />
+      <Context />
     </div>
   );
 };
