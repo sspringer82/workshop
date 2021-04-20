@@ -1,33 +1,12 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import Filter from '../../util/Filter';
 import Form from '../RecipeForm/RecipeForm';
 import RecipeListItem from './RecipeListItem';
-import { Recipe } from '../../util/recipe';
-import produce from 'immer';
+import { useRecipe } from './useRecipe';
 
 const RecipeList: React.FC = () => {
-  const [recipes, setRecipes] = useState<Recipe[]>([]);
+  const { recipes, handleDelete, handleSave } = useRecipe();
   const [filter, setFilter] = useState<string>('');
-
-  useEffect(() => {
-    (async () => {
-      const response = await fetch('http://localhost:3001/recipe');
-      const data = await response.json();
-      setRecipes(data);
-    })();
-  }, []);
-
-  async function handleDelete(id: number): Promise<void> {
-    const response = await fetch('http://localhost:3001/recipe/' + id, {
-      method: 'DELETE',
-    });
-    if (response.ok) {
-      setRecipes((oldRecipe) => {
-        const newRecipe = oldRecipe.filter((recipe) => recipe.id !== id);
-        return newRecipe;
-      });
-    }
-  }
 
   if (recipes.length === 0) {
     return <div>No Recipes found</div>;
@@ -55,15 +34,7 @@ const RecipeList: React.FC = () => {
           })}
       </ul>
       <hr />
-      <Form
-        onSave={(newRecipe: Recipe) =>
-          setRecipes((oldRecipes) =>
-            produce(oldRecipes, (draftState) => {
-              draftState.push(newRecipe);
-            }),
-          )
-        }
-      />
+      <Form onSave={handleSave} />
     </>
   );
 };

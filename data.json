@@ -3,14 +3,24 @@
     {
       "id": 1,
       "title": "Schnitzel",
-      "ingredients": ["1000g Fleisch"],
-      "steps": ["braten"]
+      "ingredients": [
+        "1000g Fleisch"
+      ],
+      "steps": [
+        "braten"
+      ]
     },
     {
-      "id": 2,
-      "title": "Tomatensuppe",
-      "ingredients": ["1000g Tomaten", "1l Wasser"],
-      "steps": ["kochen", "umrühren"]
+      "title": "Milchreis",
+      "ingredients": [
+        "milch",
+        "reis"
+      ],
+      "steps": [
+        "a",
+        "b"
+      ],
+      "id": 2
     }
   ]
 }
