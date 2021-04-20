@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from 'react';
-import Filter from './Filter';
-import ListItem from './ListItem';
-import { Recipe } from './recipe';
+import Filter from '../../util/Filter';
+import Form from '../RecipeForm/RecipeForm';
+import RecipeListItem from './RecipeListItem';
+import { Recipe } from '../../util/recipe';
 
-const List: React.FC = () => {
+const RecipeList: React.FC = () => {
   const [recipes, setRecipes] = useState<Recipe[]>([]);
   const [filter, setFilter] = useState<string>('');
 
@@ -44,7 +45,7 @@ const List: React.FC = () => {
           })
           .map((recipe) => {
             return (
-              <ListItem
+              <RecipeListItem
                 key={recipe.id}
                 recipe={recipe}
                 onDelete={handleDelete}
@@ -52,8 +53,10 @@ const List: React.FC = () => {
             );
           })}
       </ul>
+      <hr />
+      <Form />
     </>
   );
 };
 
-export default List;
+export default RecipeList;

@@ -1,7 +1,7 @@
 import React from 'react';
 import BaseForm from './demo/BaseForm';
 import Style from './demo/Style/Style';
-import List from './List';
+import RecipeList from './Recipe/RecipeList/RecipeList';
 
 function getAppName() {
   return 'Kochbuch';
@@ -13,7 +13,7 @@ const App: React.FC = () => {
       <h1 className="container border rounded shadow mx-4 text-xl font-bold">
         Hallo {getAppName()}
       </h1>
-      <List />
+      <RecipeList />
       <Style />
       <BaseForm />
     </div>

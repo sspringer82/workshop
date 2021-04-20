@@ -1,12 +1,12 @@
 import React from 'react';
-import { Recipe } from './recipe';
+import { Recipe } from '../../util/recipe';
 
 type Props = {
   recipe: Recipe;
   onDelete: (id: number) => void;
 };
 
-const ListItem: React.FC<Props> = ({ recipe, onDelete }) => {
+const RecipeListItem: React.FC<Props> = ({ recipe, onDelete }) => {
   return (
     <li className="flex justify-around">
       <div>{recipe.title}</div>
@@ -17,4 +17,4 @@ const ListItem: React.FC<Props> = ({ recipe, onDelete }) => {
   );
 };
 
-export default ListItem;
+export default RecipeListItem;
