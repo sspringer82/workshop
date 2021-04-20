@@ -1,18 +1,14 @@
-import React, {
-  Dispatch,
-  SetStateAction,
-  useContext,
-  useEffect,
-  useReducer,
-  useState,
-} from 'react';
-import { Recipe } from '../util/recipe';
+import React, { Dispatch, useContext, useEffect, useReducer } from 'react';
 
-const PersonContext = React.createContext<
-  [string, Dispatch<SetStateAction<string>>]
->(['', (e) => e]);
+const PersonContext = React.createContext<[State, Dispatch<Action>]>([
+  { firstname: 'Dieter' },
+  (e) => e,
+]);
 
-function reducer(state, action) {
+type State = { firstname: string };
+type Action = { type: string; data: string };
+
+function reducer(state: State, action: Action) {
   switch (action.type) {
     case 'rename':
       return { ...state, firstname: action.data };
