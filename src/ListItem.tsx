@@ -8,9 +8,11 @@ type Props = {
 
 const ListItem: React.FC<Props> = ({ recipe, onDelete }) => {
   return (
-    <li>
-      {recipe.title}
-      <button onClick={() => onDelete(recipe.id)}>delete</button>
+    <li className="flex justify-around">
+      <div>{recipe.title}</div>
+      <button className="border rounded" onClick={() => onDelete(recipe.id)}>
+        delete
+      </button>
     </li>
   );
 };

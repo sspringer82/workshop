@@ -1,4 +1,5 @@
 import React from 'react';
+import BaseForm from './demo/BaseForm';
 import Style from './demo/Style/Style';
 import List from './List';
 
@@ -14,6 +15,7 @@ const App: React.FC = () => {
       </h1>
       <List />
       <Style />
+      <BaseForm />
     </div>
   );
 };
