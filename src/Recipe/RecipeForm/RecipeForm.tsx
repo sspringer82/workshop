@@ -2,6 +2,7 @@ import { Form as FormikForm, Formik, Field, ErrorMessage } from 'formik';
 import React from 'react';
 import * as Yup from 'yup';
 import { useRecipe } from '../RecipeList/useRecipe';
+import { Link, useHistory } from 'react-router-dom';
 
 type Props = {
   // onSave: (newRecipe: Recipe) => void;
@@ -15,6 +16,7 @@ const RecipeSchema = Yup.object().shape({
 });
 
 const Form: React.FC<Props> = () => {
+  const history = useHistory();
   const { handleSave } = useRecipe();
   return (
     <div>
@@ -35,6 +37,7 @@ const Form: React.FC<Props> = () => {
             .then((response) => response.json())
             .then((data) => {
               handleSave(data);
+              history.push('/list');
               setSubmitting(false);
             });
         }}
@@ -79,6 +82,7 @@ const Form: React.FC<Props> = () => {
             <button type="submit" disabled={isSubmitting}>
               Submit
             </button>
+            <Link to="/list">Abbrechen</Link>
           </FormikForm>
         )}
       </Formik>
