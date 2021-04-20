@@ -12,7 +12,7 @@ Nachdem die Benutzer das Formular gefüllt haben, speichere die Daten auf dem Se
   fetch('http://localhost:3001/recipe', {
     method: 'POST',
     headers: {'Content-Type': 'Application/JSON'},
-    body: JSON:stringify(data)
+    body: JSON.stringify(data)
   })
   .then(response => response.json())
   .then(data => // hier haben wir die neue ID);

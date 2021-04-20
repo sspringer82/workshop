@@ -2,7 +2,11 @@ import React, { ChangeEvent, FormEvent, useState } from 'react';
 import Button from '../../util/Button';
 import { Recipe } from '../../util/recipe';
 
-const Form: React.FC = () => {
+type Props = {
+  onSave: (newRecipe: Recipe) => void;
+};
+
+const Form: React.FC<Props> = ({ onSave }) => {
   const [state, setState] = useState<Omit<Recipe, 'id'>>({
     title: '',
     ingredients: ['', ''],
@@ -31,11 +35,15 @@ const Form: React.FC = () => {
   }
 
   function handleSubmit(e: FormEvent): void {
+    debugger;
     e.preventDefault();
-
-    console.log('state', state);
-
-    console.log('i want to save ', state);
+    fetch('http://localhost:3001/recipe', {
+      method: 'POST',
+      headers: { 'Content-Type': 'Application/JSON' },
+      body: JSON.stringify(state),
+    })
+      .then((response) => response.json())
+      .then((data) => onSave(data));
   }
 
   return (
@@ -78,7 +86,7 @@ const Form: React.FC = () => {
         </label>
       </fieldset>
 
-      <Button label="save" />
+      <Button label="save" type="submit" />
     </form>
   );
 };

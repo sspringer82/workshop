@@ -54,7 +54,15 @@ const RecipeList: React.FC = () => {
           })}
       </ul>
       <hr />
-      <Form />
+      <Form
+        onSave={(newRecipe: Recipe) =>
+          setRecipes((oldRecipes) => {
+            const clone = [...oldRecipes];
+            clone.push(newRecipe);
+            return clone;
+          })
+        }
+      />
     </>
   );
 };
