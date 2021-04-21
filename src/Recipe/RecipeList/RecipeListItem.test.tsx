@@ -10,38 +10,35 @@ describe('RecipeListItem', () => {
     ingredients: ['1000g Fleisch'],
     steps: ['braten'],
   };
+  let getByText: any;
+  let getByTestId: any;
+  let onDeleteSpy: any;
+  let container: any;
 
-  it('should render the name of a recipe', () => {
-    const { getByText } = render(
-      <BrowserRouter>
-        <RecipeListItem recipe={recipe} onDelete={jest.fn()} />,
-      </BrowserRouter>,
-    );
-
-    expect(getByText('Schnitzel')).toBeInTheDocument();
-    expect(screen.getByTestId('title')).toHaveTextContent('Schnitzel');
-  });
-
-  it('should delete an entry', () => {
-    const onDeleteSpy = jest.fn();
-
-    const { getByTestId } = render(
+  beforeEach(() => {
+    onDeleteSpy = jest.fn();
+    const obj = render(
       <BrowserRouter>
         <RecipeListItem recipe={recipe} onDelete={onDeleteSpy} />,
       </BrowserRouter>,
     );
 
-    fireEvent.click(getByTestId('delete-button'));
+    getByText = obj.getByText;
+    getByTestId = obj.getByTestId;
+    container = obj.container;
+  });
 
+  it('should render the name of a recipe', () => {
+    expect(getByText('Schnitzel')).toBeInTheDocument();
+    expect(screen.getByTestId('title')).toHaveTextContent('Schnitzel');
+  });
+
+  it('should delete an entry', () => {
+    fireEvent.click(getByTestId('delete-button'));
     expect(onDeleteSpy).toHaveBeenCalledWith(1);
   });
 
   it('should verify a snapshot', () => {
-    const { container } = render(
-      <BrowserRouter>
-        <RecipeListItem recipe={recipe} onDelete={jest.fn()} />,
-      </BrowserRouter>,
-    );
     expect(container.firstChild).toMatchSnapshot();
   });
 });
