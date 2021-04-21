@@ -20,7 +20,6 @@ const Form: React.FC<Props> = () => {
   const { handleSave } = useRecipe();
   return (
     <div>
-      <h1>Formik</h1>
       <Formik
         initialValues={{
           title: '',
