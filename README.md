@@ -32,6 +32,7 @@ Neue Applikation:
 - https://kentcdodds.com/blog
 - https://overreacted.io/
 - https://github.com/brillout/awesome-react-components
+- https://github.com/redux-utilities/flux-standard-action
 
 ## Backend
 

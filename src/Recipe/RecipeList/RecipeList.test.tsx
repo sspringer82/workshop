@@ -5,10 +5,11 @@ import { act } from 'react-dom/test-utils';
 
 describe('RecipeList', () => {
   beforeAll(() => {
-    enableFetchMocks();
+    fetch.doMock();
+    fetch.resetMocks();
   });
   it('should render', async () => {
-    fetchMock.mockResponse(
+    fetch.mockResponse(
       JSON.stringify([
         {
           id: 1,
@@ -30,6 +31,6 @@ describe('RecipeList', () => {
   });
 
   it('should fail', () => {
-    fetchMock.mockReject();
+    // fetchMock.mockReject();
   });
 });

@@ -1,12 +1,22 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Filter from '../../util/Filter';
 import RecipeListItem from './RecipeListItem';
 import { useRecipe } from './useRecipe';
 import { Link } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
 
 const RecipeList: React.FC = () => {
   const { recipes, handleDelete } = useRecipe();
   const [filter, setFilter] = useState<string>('');
+
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch({ type: 'load' });
+  }, [dispatch]);
+
+  const selectedRecipes = useSelector((data: any) => {
+    return data.recipes;
+  });
 
   if (recipes.length === 0) {
     return <div>No Recipes found</div>;
@@ -39,6 +49,13 @@ const RecipeList: React.FC = () => {
       >
         neu
       </Link>
+
+      <hr />
+      <div>
+        {selectedRecipes.map((sr: any) => (
+          <div>{sr.title}</div>
+        ))}
+      </div>
     </>
   );
 };
