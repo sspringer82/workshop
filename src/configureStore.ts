@@ -6,13 +6,14 @@ import mySaga from './saga';
 export default function configureStore() {
   const sagaMiddleware = createSagaMiddleware();
 
-  sagaMiddleware.run(mySaga);
-
-  return createStore(
+  const store = createStore(
     reducer,
     {
       recipes: [],
     },
     applyMiddleware(sagaMiddleware),
   );
+
+  sagaMiddleware.run(mySaga);
+  return store;
 }

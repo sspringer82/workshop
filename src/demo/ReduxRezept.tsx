@@ -5,7 +5,6 @@ const ReduxRezept: React.FC = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    debugger;
     dispatch({ type: 'rezepteLoaded' });
   }, [dispatch]);
 
