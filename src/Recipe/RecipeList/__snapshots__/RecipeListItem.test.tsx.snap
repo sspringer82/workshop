@@ -1,0 +1,53 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[` 1`] = `
+<li
+  class="flex justify-between odd:bg-gray-200 p-2"
+>
+  <div
+    class="pl-4"
+  >
+    <a
+      data-testid="title"
+      href="/detail/1"
+    >
+      Schnitzel
+    </a>
+  </div>
+  <div
+    class="pr-4"
+  >
+    <button
+      class="border border-gray-500 px-2 rounded"
+    >
+      🗑 löschen
+    </button>
+  </div>
+</li>
+`;
+
+exports[`RecipeListItem snapshot 1`] = `
+<li
+  class="flex justify-between odd:bg-gray-200 p-2"
+>
+  <div
+    class="pl-4"
+  >
+    <a
+      data-testid="title"
+      href="/detail/1"
+    >
+      Schnitzel
+    </a>
+  </div>
+  <div
+    class="pr-4"
+  >
+    <button
+      class="border border-gray-500 px-2 rounded"
+    >
+      🗑 löschen
+    </button>
+  </div>
+</li>
+`;
