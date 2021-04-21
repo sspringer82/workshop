@@ -16,7 +16,6 @@ export function useRecipe(): ReturnValue {
   useEffect(() => {
     (async () => {
       const response = await fetch('http://localhost:3001/recipe');
-      console.log(response);
       const data = await response.json();
       setRecipes(data);
     })();

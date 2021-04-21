@@ -33,6 +33,9 @@ Neue Applikation:
 - https://overreacted.io/
 - https://github.com/brillout/awesome-react-components
 - https://github.com/redux-utilities/flux-standard-action
+- https://github.com/reduxjs/redux-thunk
+- https://redux-saga.js.org/
+- https://redux-observable.js.org/
 
 ## Backend
 
