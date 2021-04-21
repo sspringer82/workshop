@@ -17,7 +17,7 @@ function getAppName() {
 const App: React.FC = () => {
   return (
     <RecipeProvider>
-      <h1 className="container border rounded shadow mx-4 text-xl font-bold">
+      <h1 className="container border rounded shadow mx-4 mt-2 text-xl font-bold p-2">
         Hallo {getAppName()}
       </h1>
       <Router>

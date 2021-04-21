@@ -33,7 +33,12 @@ const RecipeList: React.FC = () => {
             );
           })}
       </ul>
-      <Link to="/form">neu</Link>
+      <Link
+        to="/form"
+        className="border border-gray-500 px-2 rounded ml-4 mt-2"
+      >
+        neu
+      </Link>
     </>
   );
 };

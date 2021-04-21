@@ -11,16 +11,19 @@ const Filer: React.FC<Props> = ({ filter, setFilter }) => {
   }
 
   return (
-    <label>
-      Find recipes:
-      <input
-        type="text"
-        name="filter"
-        id="filter"
-        value={filter}
-        onChange={handleFilterChange}
-      />
-    </label>
+    <div className="pl-6 py-2">
+      <label>
+        Rezepte durchsuchen:
+        <input
+          className="border ml-2"
+          type="text"
+          name="filter"
+          id="filter"
+          value={filter}
+          onChange={handleFilterChange}
+        />
+      </label>
+    </div>
   );
 };
 

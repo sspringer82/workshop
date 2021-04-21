@@ -44,45 +44,64 @@ const Form: React.FC<Props> = () => {
       >
         {({ isSubmitting }) => (
           <FormikForm>
-            <div>
+            <div className="pl-2 pt-2">
               <label>
                 Title:
-                <Field type="text" name="title" />
+                <Field type="text" className="border ml-2 " name="title" />
                 <ErrorMessage name="title" component="div" />
               </label>
             </div>
-            <div>
+            <div className="pl-2 pt-2">
               <label>
                 Zutat 1:
-                <Field type="text" name="ingredients[0]" />
+                <Field
+                  type="text"
+                  className="border ml-2  "
+                  name="ingredients[0]"
+                />
                 <ErrorMessage name="ingredients[0]" component="div" />
               </label>
             </div>
-            <div>
+            <div className="pl-2 pt-2">
               <label>
                 Zutat 2:
-                <Field type="text" name="ingredients[1]" />
+                <Field
+                  type="text"
+                  className="border ml-2  "
+                  name="ingredients[1]"
+                />
                 <ErrorMessage name="ingredients[1]" component="div" />
               </label>
             </div>
-            <div>
+            <div className="pl-2 pt-2">
               <label>
                 Step 1:
-                <Field type="text" name="steps[0]" />
+                <Field type="text" className="border ml-2 " name="steps[0]" />
                 <ErrorMessage name="steps[0]" component="div" />
               </label>
             </div>
-            <div>
+            <div className="pl-2 pt-2">
               <label>
                 Step 2:
-                <Field type="text" name="steps[1]" />
+                <Field type="text" className="border ml-2 " name="steps[1]" />
                 <ErrorMessage name="steps[1]" component="div" />
               </label>
             </div>
-            <button type="submit" disabled={isSubmitting}>
+            <button
+              className="border border-gray-500 px-2 rounded ml-2 mr-4 mt-2"
+              type="submit"
+              disabled={isSubmitting}
+            >
               Submit
             </button>
-            <Link to="/list">Abbrechen</Link>
+            <Link to="/list">
+              <button
+                type="reset"
+                className="border border-gray-500 px-2 rounded ml-2 mr-4 mt-2"
+              >
+                Abbrechen
+              </button>
+            </Link>
           </FormikForm>
         )}
       </Formik>

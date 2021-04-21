@@ -9,13 +9,18 @@ type Props = {
 
 const RecipeListItem: React.FC<Props> = ({ recipe, onDelete }) => {
   return (
-    <li className="flex justify-around">
-      <div>
+    <li className="flex justify-between odd:bg-gray-200 p-2">
+      <div className="pl-4">
         <Link to={`/detail/${recipe.id}`}>{recipe.title}</Link>
       </div>
-      <button className="border rounded" onClick={() => onDelete(recipe.id)}>
-        delete
-      </button>
+      <div className="pr-4">
+        <button
+          className="border border-gray-500 px-2 rounded"
+          onClick={() => onDelete(recipe.id)}
+        >
+          🗑 löschen
+        </button>
+      </div>
     </li>
   );
 };
