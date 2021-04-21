@@ -1,8 +1,7 @@
 import React from 'react';
-import { render, screen } from '@testing-library/react';
+import { fireEvent, render, screen } from '@testing-library/react';
 import RecipeListItem from './RecipeListItem';
 import { BrowserRouter } from 'react-router-dom';
-import renderer from 'react-test-renderer';
 
 describe('RecipeListItem', () => {
   const recipe = {
@@ -23,7 +22,21 @@ describe('RecipeListItem', () => {
     expect(screen.getByTestId('title')).toHaveTextContent('Schnitzel');
   });
 
-  it('snapshot', () => {
+  it('should delete an entry', () => {
+    const onDeleteSpy = jest.fn();
+
+    const { getByTestId } = render(
+      <BrowserRouter>
+        <RecipeListItem recipe={recipe} onDelete={onDeleteSpy} />,
+      </BrowserRouter>,
+    );
+
+    fireEvent.click(getByTestId('delete-button'));
+
+    expect(onDeleteSpy).toHaveBeenCalledWith(1);
+  });
+
+  it('should verify a snapshot', () => {
     const { container } = render(
       <BrowserRouter>
         <RecipeListItem recipe={recipe} onDelete={jest.fn()} />,

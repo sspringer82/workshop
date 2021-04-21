@@ -19,6 +19,7 @@ const RecipeListItem: React.FC<Props> = ({ recipe, onDelete }) => {
         <button
           className="border border-gray-500 px-2 rounded"
           onClick={() => onDelete(recipe.id)}
+          data-testid="delete-button"
         >
           🗑 löschen
         </button>
