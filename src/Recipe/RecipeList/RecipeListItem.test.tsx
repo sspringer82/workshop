@@ -2,6 +2,7 @@ import React from 'react';
 import { fireEvent, render, screen } from '@testing-library/react';
 import RecipeListItem from './RecipeListItem';
 import { BrowserRouter } from 'react-router-dom';
+import { act } from 'react-dom/test-utils';
 
 describe('RecipeListItem', () => {
   const recipe = {
@@ -17,15 +18,16 @@ describe('RecipeListItem', () => {
 
   beforeEach(() => {
     onDeleteSpy = jest.fn();
-    const obj = render(
-      <BrowserRouter>
-        <RecipeListItem recipe={recipe} onDelete={onDeleteSpy} />,
-      </BrowserRouter>,
-    );
-
-    getByText = obj.getByText;
-    getByTestId = obj.getByTestId;
-    container = obj.container;
+    act(() => {
+      const obj = render(
+        <BrowserRouter>
+          <RecipeListItem recipe={recipe} onDelete={onDeleteSpy} />,
+        </BrowserRouter>,
+      );
+      getByText = obj.getByText;
+      getByTestId = obj.getByTestId;
+      container = obj.container;
+    });
   });
 
   it('should render the name of a recipe', () => {
