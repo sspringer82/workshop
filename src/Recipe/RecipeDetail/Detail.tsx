@@ -6,7 +6,12 @@ const Detail: React.FC = () => {
   const { id } = useParams<{ id: string }>();
   const [recipes] = useContext(RecipeContext);
   const recipe = recipes.find((recipe) => recipe.id === parseInt(id, 10));
-  return <div>{recipe!.title}</div>;
+
+  if (recipe) {
+    return <div>{recipe.title}</div>;
+  } else {
+    return <div>Not found what your're looking for</div>;
+  }
 };
 
 export default Detail;
