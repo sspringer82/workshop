@@ -9,7 +9,6 @@ import {
   Route,
   Redirect,
 } from 'react-router-dom';
-import Dummy from './demo/Dummy';
 
 function getAppName() {
   return 'Kochbuch';
