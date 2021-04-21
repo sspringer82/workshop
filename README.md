@@ -29,6 +29,9 @@ Neue Applikation:
 - https://docs.npmjs.com/cli/v7/using-npm/scripts
 - https://github.com/browserslist/browserslist
 - https://create-react-app.dev/docs/supported-browsers-features/
+- https://kentcdodds.com/blog
+- https://overreacted.io/
+- https://github.com/brillout/awesome-react-components
 
 ## Backend
 

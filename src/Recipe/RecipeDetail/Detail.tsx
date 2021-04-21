@@ -7,7 +7,7 @@ const Detail: React.FC = () => {
   const [recipes] = useContext(RecipeContext);
   const recipe = recipes.find((recipe) => recipe.id === parseInt(id, 10));
 
-  if (recipe) {
+  if (recipe !== undefined) {
     return <div>{recipe.title}</div>;
   } else {
     return <div>Not found what your're looking for</div>;
