@@ -47,8 +47,8 @@ describe('add', () => {
   });
 
   it('should work async', (done) => {
-    const result = doSomethingAsync().then((data) => {
-      expect(result).toBe('ok');
+    doSomethingAsync().then((data) => {
+      expect(data).toBe('ok');
       done();
     });
   });
