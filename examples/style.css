@@ -1,0 +1,46 @@
+/* Tag Selektor für h1-Elemente */
+h1 {
+  font-size: x-large;
+  color: orange;
+  text-decoration: underline;
+}
+
+/* Attributselektor */
+[data-label='label'] {
+  padding-left: 30px;
+}
+
+/* Klassenselektor - class kann mehrmals vorkommen */
+.formRow {
+  padding: 5px;
+}
+
+/* ID-Selektor - id muss eindeutig sein */
+#login {
+  margin: 100px auto;
+  border: 6px dotted black;
+  padding: 10px;
+  width: 300px;
+  height: 200px;
+}
+
+.headline {
+  color: green;
+  /* color: green !important; */
+}
+
+#myHeadline {
+  color: magenta;
+}
+
+#myHeadline:hover {
+  background-color: maroon;
+}
+
+/*
+Spezifizität:
+- Ein Style-Attribut ist 1000 Punkte wert
+- IDs sind 100 Punkte wert
+- Klassen sind 10 Punkte wert
+- Elemente sind 1 Punkt wert
+*/

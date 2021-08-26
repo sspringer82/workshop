@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <!-- inline style -->
+    <div
+      style="
+        height: 45px;
+        width: 100px;
+        border: 1px solid green;
+        color: purple;
+        background-color: yellow;
+        position: absolute;
+        top: 200px;
+        left: 600px;
+        border-radius: 50px;
+        padding-top: 45px;
+      "
+    >
+      Hallo Welt
+    </div>
+
+    <!-- style tag -->
+    <style>
+      #meinDiv {
+        height: 45px;
+        width: 100px;
+        border: 1px solid blue;
+        color: white;
+        background-color: darkblue;
+        position: absolute;
+        top: 200px;
+        left: 700px;
+        padding-top: 45px;
+      }
+    </style>
+
+    <div id="meinDiv">Hallo Welt</div>
+
+    <!-- externes stylesheet -->
+    <link rel="stylesheet" href="style.css" />
+
+    <!-- Das login Formular -->
+    <form id="login">
+      <h1>Melde dich an!</h1>
+      <div class="formRow">
+        <label data-label="label">
+          Username:
+          <input type="text" autofocus name="username" />
+        </label>
+      </div>
+      <div class="formRow">
+        <label data-label="label">
+          Password:
+          <input type="password" name="password" />
+        </label>
+      </div>
+      <button>anmelden</button>
+    </form>
+
+    <h1 class="headline" id="myHeadline" style="color: turquoise">
+      Hier kommt dann der Inhalt
+    </h1>
+  </body>
+</html>

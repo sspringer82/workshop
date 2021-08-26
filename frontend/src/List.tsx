@@ -22,6 +22,7 @@ function List(): React.ReactElement {
         }
       })
       .then((data) => {
+        debugger;
         setTodos(data);
       });
   }, []);
