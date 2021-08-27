@@ -11,6 +11,9 @@
 - TailwindCSS - utility first framework: https://tailwindcss.com/
 - https://www.wasm.com.cn/demo/Tanks/
 - https://nodejs.org/en/
+- https://de.wikipedia.org/wiki/OSI-Modell
+- Sicherheitsrisiken https://owasp.org/www-project-top-ten/
+- Darf ich das? https://caniuse.com/
 
 # Start in die Applikationsentwicklung
 
@@ -26,3 +29,9 @@
 - Quellcode herunterladen (z.B. git clone)
 - npm install, um die Abhängigkeiten zu installieren
 - npm start, führt das start script aus
+
+## Paketbewertung
+
+- NPM Downloads pro Woche - Trend => sollte leicht nach oben zeigen
+- Last publish => max 6 Monate alt
+- Repository (git)
